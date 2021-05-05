@@ -67,7 +67,28 @@ public:
         return size ;
     }
 
-    void push();
+    void push( int data )
+    {
+        node * tmp = new node ;
+
+        tmp->setnext( this->current ) ;
+        tmp->setdata( data );
+
+        if ( this->current )
+        {
+            tmp->setprev( current->getprev() ) ;
+            current->setprev( tmp );
+            this->current = tmp ;
+        }
+        else
+        {
+            tmp->setprev( tmp ) ;
+            this->current = tmp ;
+        }
+
+        this->size ++ ;
+    }
+
     void pop();
     void pop(int data);
     void push_after(int new_data,int pa_data);

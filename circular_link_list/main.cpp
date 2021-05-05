@@ -71,7 +71,34 @@ public:
     void pop();
     void pop(int data);
     void push_after(int new_data,int pa_data);
-    void push_befor(int new_data,int pb_data);
+    void push_befor(int new_data,int pb_data)
+    {
+        node *temp=new node() ;
+        node *C=current ;
+        int t=size ;
+        while (t){
+            if(C->getdata()==pb_data){
+
+                if(this->size==1){
+                    C->setnext(temp) ;
+                    temp->setprev(C) ;
+                    this->current=temp ;
+                }
+                else{
+                    C->getprev()->setnext(temp) ;
+                    temp->setprev(C->getprev()) ;
+                }
+                temp->setnext(C) ;
+                temp->setdata(new_data) ;
+                C->setprev(temp) ;
+                this->size++ ;
+                break;
+            }
+            C=C->getnext() ;
+            t-- ;
+        }
+    }
+
     void print();
 
 

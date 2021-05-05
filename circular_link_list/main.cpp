@@ -71,6 +71,7 @@ public:
     void pop();
     void pop(int data);
     void push_after(int new_data,int pa_data);
+
     void push_befor(int new_data,int pb_data)
     {
         node *temp=new node() ;
@@ -99,8 +100,17 @@ public:
         }
     }
 
-    void print();
-
+    void print()
+    {
+        node * tmp = this->current ;
+        if ( current != nullptr ){
+            do{
+                cout<< tmp->getdata() << endl ;
+                tmp=tmp->getnext() ;
+            }
+            while (tmp != current);
+        }
+    }
 
 };
 

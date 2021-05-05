@@ -42,8 +42,25 @@ private:
     int size;
     node* current;
 public:
-    Circular_linked_list();
-    ~Circular_linked_list();
+    Circular_linked_list()
+    {
+        this->size=0 ;
+        current=nullptr ;
+    }
+    ~Circular_linked_list()
+    {
+        node * tmp = this->current ;
+        if ( current != nullptr ){
+            do{
+                node * tp = tmp;
+                tmp = tmp->getnext() ;
+                delete tp ;
+            }
+            while (tmp != current);
+        }
+        this->size = 0 ;
+        this->current = nullptr ;
+    }
 
     int getsize ()
     {

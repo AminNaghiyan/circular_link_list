@@ -89,7 +89,19 @@ public:
         this->size ++ ;
     }
 
-    void pop();
+    void pop( int data )
+    {
+        node * tmp = this->current ;
+        while( tmp->getdata() != data )
+        {
+            tmp = tmp->getnext() ;
+            if ( tmp == this->current )
+                break ;
+        }
+        this->current = tmp ;
+        this->pop() ;
+    }
+
     void pop(int data);
     void push_after(int new_data,int pa_data);
 

@@ -71,19 +71,20 @@ public:
     {
         node * tmp = new node ;
 
-        this->current->getprev()->setnext( tmp ) ;
-        current->setprev( tmp ) ;
         tmp->setdata( data ) ;
 
         if ( this->current )
         {
+            this->current->getprev()->setnext( tmp ) ;
+            current->setprev( tmp ) ;
             tmp->setnext( this->current ) ;
             tmp->setprev( current->getprev() ) ;
         }
         else
         {
-            tmp->setnext( tmp ) ;
-            tmp->setprev( tmp ) ;
+            this->current = tmp ;
+            this->current->setnext( tmp ) ;
+            this->current->setprev( tmp ) ;
         }
 
         this->current = tmp ;

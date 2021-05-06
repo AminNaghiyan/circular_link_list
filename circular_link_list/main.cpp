@@ -71,21 +71,22 @@ public:
     {
         node * tmp = new node ;
 
-        tmp->setnext( this->current ) ;
-        tmp->setdata( data );
+        this->current->getprev()->setnext( tmp ) ;
+        current->setprev( tmp ) ;
+        tmp->setdata( data ) ;
 
         if ( this->current )
         {
+            tmp->setnext( this->current ) ;
             tmp->setprev( current->getprev() ) ;
-            current->setprev( tmp );
-            this->current = tmp ;
         }
         else
         {
+            tmp->setnext( tmp ) ;
             tmp->setprev( tmp ) ;
-            this->current = tmp ;
         }
 
+        this->current = tmp ;
         this->size ++ ;
     }
 

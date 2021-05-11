@@ -104,7 +104,7 @@ public:
         this->pop() ;
     }
 
-    void pop(int data);
+    void pop();
     void push_after(int new_data,int pa_data);
 
     void push_befor(int new_data,int pb_data)

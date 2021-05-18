@@ -104,7 +104,23 @@ public:
         this->pop() ;
     }
 
-    void pop();
+    void pop()
+    {
+        node * tmp = this->current ;
+        node * tp = tmp;
+        if(tmp->getnext()!= nullptr && tmp->getprev()!= nullptr)
+        {
+
+            tmp->getprev()->setnext(tmp->getnext());
+            tmp->getnext()->setprev(tmp->getprev());
+            tmp = tmp->getnext();
+            current = tmp;
+        }
+        else
+            current = nullptr;
+        delete tp;
+    }
+
     void push_after(int new_data,int pa_data);
 
     void push_befor(int new_data,int pb_data)

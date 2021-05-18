@@ -111,18 +111,33 @@ public:
             current = nullptr;
         delete tp;
     }
-    void push_after(int new_data , int pa_data){
-        node * tmp = this->current ;
-        while( tmp->getdata() != pa_data )
+    void push_after(int new_data,int pa_data)
         {
-            tmp = tmp->getnext() ;
-            if ( tmp == this->current )
-                break ;
-        }
-        this->current = tmp ;
-        this->push( new_data ) ;
+            node *temp=new node() ;
+            node *C=current ;
+            int t=size ;
+            while (t){
+                if(C->getdata()==pa_data){
 
-    }
+                    if(this->size==1){
+                        C->setprev(temp) ;
+                        temp->setnext(C) ;
+                        this->current=temp ;
+                    }
+                    else{
+                        C->getnext()->setprev(temp) ;
+                        temp->setnext(C->getnext()) ;
+                    }
+                    temp->setprev(C) ;
+                    temp->setdata(new_data) ;
+                    C->setnext(temp) ;
+                    this->size++ ;
+                    break;
+                }
+                C=C->getnext() ;
+                t-- ;
+            }
+        }
     void push_befor(int new_data,int pb_data)
     {
         node *temp=new node() ;

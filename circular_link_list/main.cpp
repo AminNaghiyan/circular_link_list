@@ -70,9 +70,9 @@ public:
         if ( this->current )
         {
             this->current->getprev()->setnext( tmp ) ;
-            current->setprev( tmp ) ;
-            tmp->setnext( this->current ) ;
             tmp->setprev( current->getprev() ) ;
+            tmp->setnext( this->current ) ;
+            current->setprev( tmp ) ;
         }
         else
         {
@@ -165,11 +165,11 @@ public:
 };
 int main(){
 
-        //git link : https://github.com/AminNaghiyan/circular_link_list
+    //git link : https://github.com/AminNaghiyan/circular_link_list
 
-        // علیرضا جعفری دلیگانی 993623010
-        // 993623041 محمد امین نقیان
-        // محمد جواد صالحی دهنوی 993623027
+    // علیرضا جعفری دلیگانی 993623010
+    // 993623041 محمد امین نقیان
+    // محمد جواد صالحی دهنوی 993623027
 
     return 0;
 }

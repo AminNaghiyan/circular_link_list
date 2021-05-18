@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 class node{
 private:
     int data;
@@ -11,22 +10,18 @@ public:
     {
         this->data=Data ;
     }
-
     int getdata ()
     {
         return this->data ;
     }
-
     void setnext (node *next)
     {
         this->next=next ;
     }
-
     node *getnext ()
     {
         return this->next;
     }
-
     void setprev (node *prev)
     {
         this->prev=prev ;
@@ -61,7 +56,6 @@ public:
         this->size = 0 ;
         this->current = nullptr ;
     }
-
     int getsize ()
     {
         return size ;
@@ -90,7 +84,6 @@ public:
         this->current = tmp ;
         this->size ++ ;
     }
-
     void pop( int data )
     {
         node * tmp = this->current ;
@@ -103,7 +96,6 @@ public:
         this->current = tmp ;
         this->pop() ;
     }
-
     void pop()
     {
         node * tmp = this->current ;
@@ -119,20 +111,18 @@ public:
             current = nullptr;
         delete tp;
     }
-
     void push_after(int new_data , int pa_data){
         node * tmp = this->current ;
-                while( tmp->getdata() != pa_data )
-                {
-                    tmp = tmp->getnext() ;
-                    if ( tmp == this->current )
-                        break ;
-                }
-                this->current = tmp ;
-                this->push( new_data ) ;
+        while( tmp->getdata() != pa_data )
+        {
+            tmp = tmp->getnext() ;
+            if ( tmp == this->current )
+                break ;
+        }
+        this->current = tmp ;
+        this->push( new_data ) ;
 
     }
-
     void push_befor(int new_data,int pb_data)
     {
         node *temp=new node() ;
@@ -160,7 +150,6 @@ public:
             t-- ;
         }
     }
-
     void print()
     {
         node * tmp = this->current ;
@@ -174,11 +163,8 @@ public:
     }
 
 };
-
-
-
 int main(){
 
 
-
+    return 0;
 }
